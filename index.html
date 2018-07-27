@@ -1,0 +1,62 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', '調査年月日');
+      data.addColumn('number', '日銀が「長短金利操作付き量的・質的金融緩和」を採用していることを知っている');
+      data.addColumn('number', '見聞きしたことがある');
+      data.addColumn('number', '知らない');
+
+      data.addRows([
+        ['2013年9月',	29.4, 43.1, 26.8],
+        ['2013年12月', 30.3,	38.6,	30.9],
+        ['2014年3月',	23.2,	40.4,	34.5],
+        ['2014年6月',	28.3, 40, 31.3],
+        ['2014年9月',	 24.8, 40.2, 34.1],
+        ['2014年12月', 34.6,	36.3,	28.9],
+        ['2015年3月',	 25.3,	38.2,	35.6 ],
+        ['2015年6月',	 31.5,	37.3,	31.1],
+        ['2015年9月',	 23.4,	39,	37.1	],
+        ['2015年12月',	27.9,	37.8,	33.3],
+        ['2016年3月',		28.8,	40.9,	29.5],
+        ['2016年6月',		41.6,	35.6,	22.6],
+        ['2016年9月',		33.9,	39.6,	25.9],
+        ['2016年12月',	24.4,	37.7,	37.4],
+        ['2017年3月',		20.6,	35.1,	43.2],
+        ['2017年6月',		23.3,	38.7,	37.7],
+        ['2017年9月',		16.5,	33.1,	49.1],
+        ['2017年12月',	22.3,	36.3,	40.8],
+        ['2018年3月',		16.3,	34.7,	47.8],
+        ['2018年6月',		21,	35.2,	43.5]
+      ]);
+
+      var options = {
+        chart: {
+          title: '生活意識アンケート調査（日本銀行の金融政策運営の認知度について）',
+          subtitle: '有効回答数対する割合(%)'
+        },
+        width: 1000,
+        height: 500,
+        axes: {
+          x: {
+            0: {side: 'top'}
+          }
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
+</head>
+<body>
+  <div id="line_top_x"></div>
+</body>
+</html>
